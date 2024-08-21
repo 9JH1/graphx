@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GRAPHX</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css" />
     <script src="scripts/main.js" defer></script>
-</head>
-<body>
-    <div id="landing">
-        <div class="image-background">
-            <div class="image" id="landing-background-image"></div>
-            <div class="image-effect"></div>
-        </div>
-        <div class="navbar">
-            <div class="half">
-                <h2>GraphX</h2>
-                <span class="seperator"></span>
 
-            </div>
-            <div class="half"></div>
-        </div>
+    <script src="scripts/land.js" defer></script>
+  </head>
+  <body>
+    <div id="landing">
+      <div class="image-background" id="landing-background-image-background">
+        <div class="image" id="landing-background-image"></div>
+        <div class="image-effect"></div>
+      </div>
     </div>
-</body>
+    <div class="navbar">
+      <div class="half">
+        <h1 title="GraphX | Home">
+          <a href="https://9jh1.github.io/graphx">GraphX</a>
+        </h1>
+        <span class="sep"></span>
+        <h4>
+          A Collection Of Beautiful <br />
+          Video Game Graphics
+        </h4>
+      </div>
+      <div class="half">
+        <a href="https://9jh1.github.com/search.html?new?isfirst">
+          <button title="GraphX | Search: recent">
+            <h3>NEW</h3>
+            <div class="effect"></div></button></a
+        ><a href="https://9jh1.github.com/search.html?popular?isfirst">
+          <button>
+            <h3 title="GraphX | Search: popular">POPULAR</h3>
+            <div class="effect"></div></button></a
+        ><a href="potd.html">
+          <button title="GraphX | POTD">
+            <h3>POST OF THE DAY</h3>
+            <div class="effect"></div></button
+        ></a>
+        <button onclick="searchAnimations()">
+          <div class="effect"></div>
+          <h3>SEARCH</h3>
+        </button>
+      </div>
+    </div>
+  </body>
 </html>

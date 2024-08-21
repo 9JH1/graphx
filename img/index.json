@@ -13,5 +13,14 @@
         "post_proccessing": "",
         "reference_url": "banner", 
         "alt_text":""
+    },
+    "1": { 
+        "img_local": "/img/full/jumped.jpg"
+    },
+    "2": { 
+        "img_local": "/img/full/pic.jpg"
+    },
+    "3": { 
+        "img_local": "/img/full/road.jpg"
     }
 }

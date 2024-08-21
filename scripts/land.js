@@ -1,11 +1,10 @@
-//landing page
 const landing_imageBackground = document.getElementById(
   "landing-background-image"
 );
 const landing_imageBackgroundBackground = document.getElementById(
   "landing-background-image-background"
 );
-fetch("../img/index.json")
+fetch("https://9jh1.github.io/graphx/img/index.json")
   .then((response) => {
     return response.json();
   })

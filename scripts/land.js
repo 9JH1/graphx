@@ -4,7 +4,7 @@ const landing_imageBackground = document.getElementById(
 const landing_imageBackgroundBackground = document.getElementById(
   "landing-background-image-background"
 );
-fetch("https://9jh1.github.io/graphx/img/index.json")
+fetch("img/index.json")
   .then((response) => {
     return response.json();
   })

@@ -13,5 +13,5 @@
 
 > ### Contact
 >
-> - #### [TKF.X1OS@gmail.com](gmail.com)
+> - #### [tkf.x1os@gmail.com](gmail.com)
 > - #### [Personal Website](9jh1.github.io)

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GRAPHX</title>
     <link rel="stylesheet" href="styles/main.css" />
-    <script src="scripts/main.js" defer></script>
+    <script src="scripts/search.js" defer></script>
 
     <script src="scripts/land.js" defer></script>
   </head>
@@ -18,12 +18,16 @@
     </div>
     <div id="search">
       <div class="search-options">
-        <input type="text" class="search-bar" placeholder="SEARCH" />
+        <input type="text" class="search-bar" placeholder="SEARCH" id="search-bar-input"/>
         <button class="enter">
           <img src="img/icons/search.jpg" alt="search icon" />
         </button>
       </div>
-      <div class="options"><div class="spacer"></div></div>
+      <div class="options"><div class="spacer">
+      </div>
+        <div id="search-options-input" class="tag-area">
+        </div>
+    </div>
     </div>
     <div class="navbar">
       <div class="half">

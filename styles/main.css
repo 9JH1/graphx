@@ -184,16 +184,36 @@ body {
     }
   }
   .options {
+    
     position: absolute;
     width: 100%;
     background-color: rgb(255, 255, 255);
     top: 50%;
     z-index: -1;
     border-radius: 0px 0px 30px 30px;
+    overflow:hidden;
     .spacer {
       height: 25px;
       background-color: rgba(0, 0, 0, 0);
       width: 100%;
+    }
+    .tag-area {
+
+        box-sizing:border-box;
+        width:100%;
+        .entry { 
+            width:100%;
+            color:black;
+            border-bottom: grey 1px solid;
+            padding:5px;
+            box-sizing:border-box;
+            user-select: none;
+            margin:10px;
+        }
+        .entry:hover { 
+            background:grey; 
+            font-weight:bold;
+        }
     }
   }
 }

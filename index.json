@@ -3,7 +3,7 @@
         "0":{
         "id": "random id",
         "description": "this is a test structure",
-        "title": "example_data",
+        "title": "Example_Data",
         "caption": "Example Data!!",
         "path_local": "img/example.jpg",
         "path_url": "https://example.com/example",
@@ -11,14 +11,19 @@
         "creator": "John Doe",
         "tags": ["example", "tag", "data"], 
         "width":1920,
-        "height":1080  
+        "height":1080,
+        "layout":"wide"
       }
     },
     "settings":{ 
-        "popular_tags":[],
+        "popular_tags":[
+            ["Assetto_Corsa",123],
+            [],
+            []
+        ],
         "games":[
-            [],
-            [],
+            ["Assetto_Corsa","car game open source moddable"],
+            ["Assetto_Corsa Competizone","assetto_corsa_competizone"],
             []
         ], 
         "404":"false"

@@ -39,32 +39,46 @@ function sortBySimilarity(array, word) {
 }
 
 const searchbar = document.getElementById("search-bar-input");
-const searchOptions = document.getElementById("search-options-input")
+const searchOptions = document.getElementById("search-options-input");
+const searchEnterButton = document.getElementById("search-enter-input");
 fetch("img/search.json")
   .then((response) => {
     return response.json();
   })
   .then((data) => {
-    function runResults(){
-      searchOptions.innerHTML = "";
-      let inputArray = (((searchbar.value).trim()).split(" "));
-      let inputText = inputArray[inputArray.length - 1]
-      const newItems = sortBySimilarity(data["tags"], inputText);
-      newItems.forEach((element, index) => {
-
-        if (searchOptions.getElementsByClassName("entry").length < 5) {
-            if (!inputArray.includes(element)) {
-              const newSearchResult = document.createElement("div");
-              newSearchResult.classList.add("entry")
-              newSearchResult.innerHTML = element;
-              newSearchResult.addEventListener("click",()=>{searchbar.value = searchbar.value +" " +  element;runResults()})
-              searchOptions.append(newSearchResult);
-            }
-        }
-      });
-      if(searchbar.value == ""){
-        searchOptions.innerHTML("");
+    function openSearchPage() {
+      if (searchbar.value != "") {
+        let inputArray = searchbar.value.trim().replaceAll(" ", "+");
+        inputArray = `search.html?fromSearch=true?searchData=${inputArray}`;
+        location.href = inputArray;
       }
     }
-    searchbar.addEventListener("keypress",runResults)
-  })
+    function runResults() {
+      searchOptions.innerHTML = "";
+      let inputArray = searchbar.value.trim().split(" ");
+      let inputText = inputArray[inputArray.length - 1];
+      const newItems = sortBySimilarity(data["tags"], inputText);
+      if (searchbar.value)
+        newItems.forEach((element, index) => {
+          if (searchOptions.getElementsByClassName("entry").length < 5) {
+            if (!inputArray.includes(element)) {
+              const newSearchResult = document.createElement("div");
+              newSearchResult.classList.add("entry");
+              newSearchResult.innerHTML = element;
+              newSearchResult.addEventListener("click", () => {
+                searchbar.value = searchbar.value + " " + element;
+                runResults();
+              });
+              searchOptions.append(newSearchResult);
+            }
+          }
+        });
+    }
+    searchbar.addEventListener("keyup", runResults);
+    searchbar.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        openSearchPage();
+      }
+    });
+    searchEnterButton.addEventListener("click", openSearchPage);
+  });

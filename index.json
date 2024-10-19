@@ -1,0 +1,27 @@
+{
+    "photo":{
+        "0":{
+        "id": "random id",
+        "description": "this is a test structure",
+        "title": "example_data",
+        "caption": "Example Data!!",
+        "path_local": "img/example.jpg",
+        "path_url": "https://example.com/example",
+        "date": "12/34/56",
+        "creator": "John Doe",
+        "tags": ["example", "tag", "data"], 
+        "width":1920,
+        "height":1080  
+      }
+    },
+    "settings":{ 
+        "popular_tags":[],
+        "games":[
+            [],
+            [],
+            []
+        ], 
+        "404":"false"
+    }
+
+}

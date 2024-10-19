@@ -12,7 +12,8 @@
         "resolution": "",
         "post_proccessing": "",
         "reference_url": "banner", 
-        "alt_text":""
+        "alt_text":"",
+        "popularity":0.000
     },
     "1": { 
         "img_local": "img/full/jumped.jpg"

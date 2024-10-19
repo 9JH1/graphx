@@ -3,58 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GRAPHX</title>
-    <link rel="stylesheet" href="styles/main.css" />
-    <script src="scripts/search.js" defer></script>
-
-    <script src="scripts/land.js" defer></script>
+    <title>Document</title>
   </head>
   <body>
-    <div id="landing">
-      <div class="image-background" id="landing-background-image-background">
-        <div class="image" id="landing-background-image"></div>
-        <div class="image-effect"></div>
-      </div>
-    </div>
-    <div id="search">
-      <div class="search-options">
-        <input type="text" class="search-bar" placeholder="SEARCH" id="search-bar-input"/>
-        <button class="enter">
-          <img src="img/icons/search.jpg" alt="search icon" />
-        </button>
-      </div>
-      <div class="options"><div class="spacer">
-      </div>
-        <div id="search-options-input" class="tag-area">
-        </div>
-    </div>
-    </div>
-    <div class="navbar">
-      <div class="half">
-        <h1 title="GraphX | Home">
-          <a href="https://9jh1.github.io/graphx">GraphX</a>
-        </h1>
-        <span class="sep"></span>
-        <h4>
-          A Collection Of Beautiful <br />
-          Video Game Graphics
-        </h4>
-      </div>
-      <div class="half" id="navbar-buttons">
-        <a href="https://9jh1.github.io/graphx/search.html?new?isfirst">
-          <button title="GraphX | Search: recent">
-            <h3>NEW</h3>
-            <div class="effect"></div></button></a
-        ><a href="https://9jh1.github.io/graphx/search.html?popular?isfirst">
-          <button>
-            <h3 title="GraphX | Search: popular">POPULAR</h3>
-            <div class="effect"></div></button></a
-        ><a href="potd.html">
-          <button title="GraphX | POTD">
-            <h3>POST OF THE DAY</h3>
-            <div class="effect"></div></button
-        ></a>
-      </div>
-    </div>
+    <h2 id="test">Hello World</h2>
+    <script>
+      fetch("index.json")
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          var count = Object.keys(data).length - 1;
+        });
+    </script>
   </body>
 </html>

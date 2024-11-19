@@ -4,365 +4,204 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-      :root {
-        --background: #000000;
-        --surface_background: #000000;
-        --foreground: #ffffff;
-        --surface_foreground: #6a6a6a;
-        --surface_foreground_1: #191919;
-        --surface_foreground_2: #0c0c0c;
-        --opacity: 0.4;
-      }
-      body {
-        margin: 0px;
-        padding: 0px;
-        width: 100vw;
-        height: 100vh;
-        overflow-x: hidden;
-      }
-      .lf {
-        font-family: "Bakbak One", serif;
-        font-weight: 700;
-        font-size: 1.3em;
-      }
-      .sf {
-        font-size: 0.9em;
-        opacity: var(--opacity);
-      }
-      .cc {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .cc-w {
-        flex-wrap: wrap;
-      }
-      .av {
-        background: var(--background);
-        color: var(--foreground);
-        font-family: "Barlow Semi Condensed", serif;
-        font-weight: 600;
-      }
-      .up {
-        width: 20%;
-        height: 100%;
-      }
-      .fr {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: end;
-        justify-content: end;
-      }
-      .pc {
-        padding: 10px;
-      }
-      .tc {
-        text-align: center;
-      }
-      .ac {
-        position: fixed;
-        top: 0;
-        right: 0;
-      }
-      .bz {
-        width: 40px;
-        height: 20px;
-        background: var(--foreground);
-        border-radius: 5px;
-        border: solid 1px var(--surface_foreground);
-        cursor: pointer;
-      }
-      .tr {
-        transition: all 0.2s ease-in-out;
-      }
-      .bl {
-        width: 35px;
-        height: 20px;
-        font-size: 0.9em;
-        cursor: pointer;
-      }
-      .sp {
-        height: 20px;
-        width: 2px;
-        background: var(--foreground);
-        opacity: calc(var(--opacity) / 2);
-        margin: 0px 10px;
-      }
-      .fsi {
-        width: 20px;
-        height: 20px;
-        filter: brightness(200); /* make white */
-      }
-      .zc {
-        opacity: var(--opacity);
-      }
-      .zc:hover {
-        opacity: 1;
-      }
-      .usp {
-        position: fixed;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border-right: 1px solid var(--foreground);
-      }
-      .cp {
-        cursor: pointer;
-        user-select: none;
-      }
-      section#portfolio {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        grid-auto-rows: 150px; /* Adjust row height as needed */
-        gap: 3px;
-        width: 80%;
-        height: 100%;
-        padding: 3px;
-        box-sizing: border-box;
-      }
-
-      .portfolio_item {
-        font-size: 18px;
-        transition: transform 0.3s ease;
-        border: 1px var(--foreground) solid;
-        animation: imageload 2s infinite;
-      }
-
-      /* Grid modifiers for wide and tall items */
-      .portfolio_item.wide {
-        grid-column: span 4;
-
-        grid-row: span 2;
-      }
-      .portfolio_item.tall {
-        grid-row: span 4;
-
-        grid-column: span 2;
-      }
-
-      .portfolio_item.wide_tall {
-        grid-column: span 4;
-        grid-row: span 4;
-      }
-
-      .portfolio_item:hover {
-        transform: scale(1.05);
-        background: var(--foreground);
-        animation: none;
-      }
-
-      @media (max-width: 767px) {
-        section#portfolio {
-          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-          grid-auto-rows: 100px;
-        }
-      }
-      @keyframes imageload {
-        0% {
-          background: var(--foreground);
-        }
-        90% {
-          background: var(--surface_foreground);
-        }
-        100% {
-          background: var(--foreground);
-        }
-      }
-      .uspt {
-        width: 100%;
-
-        .cuspt {
-          width: 95%;
-          height: 100%;
-          background: var(--surface_foreground_1);
-          border-radius: 20px 20px 0px 0px;
-          overflow: hidden;
-        }
-        .cuspt-t,
-        .cuspt-i {
-          width: 100%;
-          height: 50px;
-          border-bottom: 1px solid var(--surface_foreground);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          box-sizing: border-box;
-          .cuspt-r {
-            background-color: var(--foreground);
-            border-radius: 20px;
-            padding: 1px 10px;
-            color: var(--background);
-          }
-        }
-        .cuspt-t {
-          border-bottom: 1px solid var(--foreground);
-          .cuspt-l {
-            color: var(--foreground);
-          }
-          .cuspt-r {
-            padding: 0;
-            background-color: transparent;
-            color: var(--surface_foreground);
-          }
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="av cc">
-    <div class="av up usp" aria-label="Side Panel">
-      <div class="cc cc-w pc">
-        <div class="lf cp" title="Scroll To Top">GRAPHX</div>
-        <div class="sf tc">a collection of beautiful video game graphics</div>
+  <body>
+    <div class="sidebar position-fixed side-padding">
+      <div class="area title">
+        <span class="title" onclick="location.href='index.html'">GraphX</span>
+        <span class="subtitle">pretty game graphics</span>
       </div>
-      <div class="cc uspt">
-        <div class="cuspt" id="ptags">
-          <div class="cuspt-t pc">
-            <div class="cuspt-l cc">Popular Tags</div>
-            <div class="cuspt-r cc sf">Show All</div>
+      <div class="area options">
+        <span class="active"><a href="index.html">Home</a></span>
+        <span>Recent</span>
+        <span>Upload</span>
+        <div class="search">
+          <div class="drop-down-search" id="dropdown"></div>
+          <input type="text" id="search" placeholder="Search" />
+          <div class="search-icon" id="search-enter">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+              stroke="white"
+              stroke-width="30"
+            >
+              <path
+                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="ac cc pc zc tr"
-      aria-label="Zoom Controls"
-      style="display: none"
-    >
-      <button
-        class="bz cc cp"
-        id="uzp"
-        aria-label="Zoom Increase"
-        title="Increase Zoom"
-      >
-        +
-      </button>
-      <div
-        class="bl cc cp"
-        id="uzl"
-        aria-label="Zoom Amount"
-        title="Zoom Amount / Reset Zoom (click)"
-      >
-        100
-      </div>
-      <button
-        class="bz cc cp"
-        id="uzn"
-        aria-label="Zoom Decrease"
-        title="Decrease Zoom"
-      >
-        -
-      </button>
-      <div class="sp"></div>
-      <img
-        src="https://cdn-icons-png.freepik.com/512/8373/8373465.png"
-        alt="Fullscreen Icon"
-        class="fsi cp"
-        draggable="false"
-      />
+    <div class="content" id="content">
+      <div class="images side-padding"></div>
+      <div class="load-more" id="loader">Loading</div>
     </div>
-    <div class="av fr" id="up">
-      <section id="portfolio">
-        <!-- Portfolio items will be generated dynamically -->
-      </section>
-    </div>
-    <script>
-      function dID(a) {
-        return document.getElementById(a);
-      }
-      function ui_zoomControl_setZoomValue(a, b) {
-        if (
-          (a < 10 && a < Number(b.innerText)) ||
-          (a > 200 && a > Number(b.innerText))
-        ) {
-        } else {
-          b.innerText = a;
-        }
-        console.log(a);
-      }
-
-      const ui_zoomControlPositive = dID("uzp");
-      const ui_zoomControlNegative = dID("uzn");
-      const ui_zoomControlLabel = dID("uzl");
-
-      ui_zoomControlNegative.addEventListener("click", () => {
-        ui_zoomControl_setZoomValue(
-          Number(ui_zoomControlLabel.innerText) - 10,
-          ui_zoomControlLabel
-        );
-      });
-      ui_zoomControlLabel.addEventListener("click", () => {
-        ui_zoomControl_setZoomValue(100, ui_zoomControlLabel);
-      });
-      ui_zoomControlPositive.addEventListener("click", () => {
-        ui_zoomControl_setZoomValue(
-          Number(ui_zoomControlLabel.innerText) + 10,
-          ui_zoomControlLabel
-        );
-      });
-    </script>
-    <script>
-      fetch("index.json")
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          var count = Object.keys(data).length - 1;
-        });
-      const totalImages = 2000; // Set the total number of portfolio items
-      const portfolio = document.getElementById("portfolio");
-      const sizes = ["normal", "wide", "tall", "wide_tall"]; // Possible size classes
-      let load = 0;
-      let imageCount = 30;
-      let local_i = 0;
-      function isOnScreen(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-          rect.bottom >= 0 &&
-          rect.right >= 0 &&
-          rect.top <= window.innerHeight &&
-          rect.left <= window.innerWidth
-        );
-      }
-
-      // Function to get a random size
-      function getRandomSize() {
-        return sizes[Math.floor(Math.random() * sizes.length)];
-      }
-
-      // Function to create a portfolio item with a delay
-      function createPortfolioItem(index) {
-        const item = document.createElement("div");
-        item.classList.add("portfolio_item");
-
-        // Add random size class
-        const sizeClass = getRandomSize();
-        if (sizeClass !== "normal") {
-          sizeClass.split(" ").forEach((size) => item.classList.add(size));
-        }
-
-        portfolio.appendChild(item);
-        if (!isOnScreen(item)) {
-          item.remove();
-          load = 0;
-        } else {
-        }
-      }
-      function fillScreen(max) {
-        for (let i = 0; i < max; i++) {
-          setTimeout(() => {
-            createPortfolioItem(i);
-          }, i * 30);
-        }
-      }
-      window.addEventListener("scroll", () => {
-        fillScreen(300);
-      });
-      fillScreen(300);
-    </script>
   </body>
+  <script>
+    const loader = document.getElementById("loader");
+    setInterval(() => {
+      if (loader.innerText !== "All Images Loaded") {
+        if (loader.innerText == "Loading...") {
+          loader.innerText = "Loading";
+        } else {
+          loader.innerText = `${loader.innerText}.`;
+        }
+      }
+    }, 1000);
+    const image_amount = 100;
+    const searchBar = document.getElementById("search");
+    const searchButton = document.getElementById("search-enter");
+    function openSearch() {
+      console.log("searched");
+    }
+    searchBar.addEventListener("", (e) => {
+      if (e.key === "Enter" || e.keyCode === 13) {
+        openSearch();
+      }
+    });
+    searchButton.addEventListener("click", () => openSearch);
+
+    const quality = 0.8;
+    let image_list = [];
+    fetch("index.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        var count = Object.keys(data).length - 1;
+        /*document.getElementById(
+            "image"
+          ).src = `data:image/jpeg;base64,${data["new"]["raw_image_data"]}`;*/
+        for (const key in data["images"]) {
+          image_list.push(key);
+        }
+
+        function loadImages() {
+          shuffle(image_list);
+          for (let i = 0; i < image_amount; i++) {
+            if (image_list.length == 0) {
+              console.log("out of images");
+              loader.innerText = "All Images Loaded";
+              return;
+            } else {
+              console.log(image_list.length);
+            }
+            let curimg = data["images"];
+            let curfile = image_list[0];
+            curimg = curimg[String(image_list[0])];
+            curimg = curimg["file"];
+            image_list.splice(0, 1);
+
+            const nd = document.createElement("div");
+            const nc = document.createElement("img");
+
+            nd.classList.add("image");
+            nc.classList.add("image-inner");
+            nd.append(nc);
+            document.getElementsByClassName("images")[0].append(nd);
+            scaleImageQuality(curimg, nc);
+            nd.addEventListener("click", () => {
+              location.href = `index.html?file=${curfile}`;
+            });
+            const currentScroll = window.scrollY;
+            setTimeout(() => {
+              if (
+                nd.getBoundingClientRect().y - currentScroll >
+                window.innerHeight
+              ) {
+                shuffle(image_list);
+                nd.remove();
+                image_list.push(curfile);
+                console.log("culled image");
+              } else {
+              }
+            }, 3000);
+          }
+        }
+        const targetElement = document.querySelector("#loader");
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              loadImages();
+              console.log("loading new images");
+            } else {
+            }
+          });
+        });
+        // Start observing the element
+        observer.observe(targetElement);
+      });
+    async function scaleImageQuality(originalSrc, imgElement) {
+      const img = new Image();
+      img.src = originalSrc;
+      await img.decode(); // Wait for the image to Load
+      // Get screen dimensions
+      const maxWidth = window.innerWidth; // Limit width to screen size
+      const aspectRatio = img.height / img.width; // Maintain aspect ratio
+
+      imgElement.style.height = img.height / 3;
+      // Calculate new dimensions
+      let newWidth = maxWidth;
+      let newHeight = newWidth * aspectRatio;
+
+      // Create a canvas to resize the image
+      const canvas = document.createElement("canvas");
+      canvas.width = newWidth;
+      canvas.height = newHeight;
+
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, newWidth, newHeight); // Draw the resized image
+
+      // Set the src of the img element to the data URL of the canvas
+      imgElement.src = canvas.toDataURL("image/jpeg", quality); // Set quality (0.7 for 70%)
+    }
+    function shuffle(array) {
+      let currentIndex = array.length;
+      while (currentIndex != 0) {
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex],
+          array[currentIndex],
+        ];
+      }
+    }
+    function isOnScreen(element) {
+      return new Promise((resolve) => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(
+            (entry) => {
+              resolve(entry.isIntersecting);
+            },
+            { root: null, rootMargin: "0px", threshold: 0.1 }
+          );
+        });
+        observer.observe(element);
+      });
+    }
+    shuffle(image_list);
+    let imageIndex = 10;
+  </script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("file") != null) {
+      // view file
+      document.getElementById(
+        "content"
+      ).innerHTML = `<iframe class="iframe" src="view.html?file=${urlParams.get(
+        "file"
+      )}"> </iframe>`;
+    } else if (urlParams.get("search") != null) {
+      // search prams to look through files
+      document.body.innerHTML = "";
+    }
+    function myParentFunction(href) {
+      location.href = href;
+    }
+  </script>
 </html>

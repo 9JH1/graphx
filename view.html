@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sidebar"></div>
+    <div class="view" id="view">
+    </div>
+    <div class="info side-padding">
+      <h2 class="title">
+        <span id="image_title"></span>
+        <span class="subtitle">by <a id="image_creator"></a></span>
+      </h2>
+
+      <p class="description" id="image_description">
+      </p>
+      <div class="extra-info">
+        <div class="entry-keys">
+          <div class="entry">Dimensions</div>
+          <div class="entry">Format</div>
+          <div class="entry">Color Mode</div>
+          <div class="entry">Location</div>
+          <div class="entry">Date</div>
+          <div class="entry">Game</div>
+          <div class="entry">image ID</div>
+          <div class="entry">Tags</div>
+        </div>
+        <div class="entry-values">
+          <div class="entry" id="image_dimensions"></div>
+          <div class="entry" id="image_format"></div>
+          <div class="entry" id="image_color_mode"></div>
+
+          <div class="entry" id="image_location"></div>
+          <div class="entry" id="image_date"></div>
+          <div class="entry" id="image_game"></div>
+
+          <div class="entry" id="image_id"></div>
+          <div class="entry" id="image_tags"></div>
+        </div>
+      </div>
+      <p><div id="raw" class=".raw" onclick="showRawData()">View raw data here</div></p>
+    </div>
+  </body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const raw = document.getElementById("raw");
+    const image_title=document.getElementById("image_title")
+
+    const image_description=document.getElementById("image_description")
+    const image_creator=document.getElementById("image_creator")
+    const image_dimensions = document.getElementById("image_dimensions")
+    const image_format = document.getElementById("image_format")
+    const image_color_mode = document.getElementById("image_color_mode")
+    const image_location = document.getElementById("image_location")
+    const image_date = document.getElementById("image_date")
+    const image_game = document.getElementById("image_game")
+    const image_id = document.getElementById("image_id")
+    const image_tags = document.getElementById("image_tags")
+    
+    let raw_json = ""
+    fetch("index.json")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        raw_json = JSON.stringify(data["images"][urlParams.get("file")])
+        raw_json = raw_json.replaceAll(",", ",\n  ");
+        raw_json = raw_json.replaceAll("{", "{\n  ");
+        raw_json = raw_json.replaceAll("}", "\n}");
+        image_title.innerText = data["images"][urlParams.get("file")]["title"]
+        image_dimensions.innerText = data["images"][urlParams.get("file")]["size"]
+        image_description.innerText = data["images"][urlParams.get("file")]["description"]
+        image_format.innerText = data["images"][urlParams.get("file")]["format"]
+        image_color_mode.innerText = data["images"][urlParams.get("file")]["color_mode"]
+        image_location.innerText = data["images"][urlParams.get("file")]["file"]
+        image_date.innerText = data["images"][urlParams.get("file")]["date"]
+        image_id.innerText = urlParams.get("file")
+        image_creator.innerText = data["images"][urlParams.get("file")]["creator"]
+        image_tags.innerText = data["images"][urlParams.get("file")]["tags"]
+        image_game.innerText = data["images"][urlParams.get("file")]["game"]
+        document.getElementById("view").style.backgroundImage = `url("${data["images"][urlParams.get("file")]["file"]}")`
+        image_location.addEventListener("click",()=>{
+          window.parent.myParentFunction(data["images"][urlParams.get("file")]["file"]);
+        })
+        image_location.innerHTML=`<a>${data["images"][urlParams.get("file")]["file"]}<a/>`;
+      })
+    function showRawData() {
+      raw.innerText = raw_json;
+      raw.classList.remove("raw");
+      raw.classList.add("raw-text")
+      raw.onclick = ""
+    }
+  </script>
+</html>
